@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ff-einsatzmodul-page/static/css/main.e6c13ad2.css",
+    "main.js": "/ff-einsatzmodul-page/static/js/main.0ceefa9a.js",
+    "index.html": "/ff-einsatzmodul-page/index.html",
+    "main.e6c13ad2.css.map": "/ff-einsatzmodul-page/static/css/main.e6c13ad2.css.map",
+    "main.0ceefa9a.js.map": "/ff-einsatzmodul-page/static/js/main.0ceefa9a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.0ceefa9a.js"
+  ]
+}
