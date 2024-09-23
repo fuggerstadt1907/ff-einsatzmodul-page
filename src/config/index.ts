@@ -5,7 +5,7 @@ export * from './queryClient'
 export const BASE_URL = 'https://webservice.feuerwehr-koenigsbrunn.org/mpfeuer/einsatz.php'
 
 export const CURRENT_YEAR = dayjs().year().toString()
-export const API_KEY = process.env.REACT_APP_API_KEY || ''
+export const API_KEY = process.env.REACT_APP_API_KEY || '16ctch9ufvq5heeih6gurxfk'
 
 export const ffKbrVehicles = [
   '10/1',

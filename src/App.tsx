@@ -18,10 +18,8 @@ const AppRoot = () => {
     params: { year },
     options: {
       onSuccess: data => {
-        // const fakedData = [...data, data[0].FZG = '10/1, 12/1, 40/1, 40/2']
-        // console.log(fakedData)
-        // @ts-ignore
-        keyword === 'alle' ? setEinsaetze(data) : setEinsaetze(data.filter(e => e.KAT === keyword))
+        const sortedData = data.reverse()
+        keyword === 'alle' ? setEinsaetze(sortedData) : setEinsaetze(sortedData.filter(e => e.KAT === keyword))
       },
     },
   })

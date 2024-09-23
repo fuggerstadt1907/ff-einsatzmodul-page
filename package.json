@@ -1,6 +1,5 @@
 {
   "name": "ff-einsatzmodul-page",
-  "homepage": "https://fuggerstadt1907.github.io/ff-einsatzmodul-page",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
