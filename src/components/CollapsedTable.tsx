@@ -55,12 +55,6 @@ const CollapsedTable: React.FC<Props> = ({ row }) => {
               </TableCell>
             </TableRow>
           ) : null}
-          <TableRow>
-            <TableCell sx={{ width: isMobile ? 10 : 180, borderBottom: 'none' }}>Anmerkungen:</TableCell>
-            <TableCell sx={{ borderBottom: 'none' }}>
-              {row.LAGE}
-            </TableCell>
-          </TableRow>
         </TableBody>
       </Table>
     </TableContainer>
