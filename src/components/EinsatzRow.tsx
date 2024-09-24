@@ -26,8 +26,8 @@ const Row: React.FC<Props> = ({ row }) => {
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </TableCell>
-        <TableCell sx={{ width: '50px' }} component="th" scope="row">
-          {row.NR?.toString()}
+        <TableCell sx={{ width: '50px' }}>
+          {row.NR?.toString().split('-')[1]}
         </TableCell>
         <TableCell sx={{ width: '150px' }}>{dayjs(row.VON, 'YYYY-MM-DD').format('DD.MM.YYYY')}</TableCell>
         <TableCell>
@@ -37,13 +37,13 @@ const Row: React.FC<Props> = ({ row }) => {
         </TableCell>
 
         <TableCell>{row.DESCR}</TableCell>
-        <TableCell>
+        {/* <TableCell>
           {row.FZG ? row.FZG?.split(/[;,+]+/).map(fzg => (
             <Label key={fzg} sx={{ m: 1 }} color="black" backgroundColor="rettungsdienst-sonstige">
               {fzg.trim()}
             </Label>
           )) : <Label sx={{ m: 1 }} color="black" backgroundColor="rettungsdienst-sonstige">unbekannt</Label>}
-        </TableCell>
+        </TableCell> */}
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>

@@ -8,35 +8,39 @@ import { CURRENT_YEAR, queryClient } from './config'
 import { useGetEinsaetze } from './hooks'
 import { ApiEinsatzResponse } from './@types'
 import TableSkeleton from './components/TableSkeleton'
+import KategorieCards from './components/KategorieCards'
 
 const AppRoot = () => {
   const [keyword, selectedKeyword] = useState('alle')
   const [year, selectYear] = useState(CURRENT_YEAR)
   const [einsaetze, setEinsaetze] = useState<Array<ApiEinsatzResponse> | undefined>(undefined)
+  const [filteredEinsaetze, setFilteredEinsaetze] = useState<Array<ApiEinsatzResponse> | undefined>(undefined)
 
   const { data, isLoading } = useGetEinsaetze({
     params: { year },
     options: {
       onSuccess: data => {
         const sortedData = data.reverse()
-        keyword === 'alle' ? setEinsaetze(sortedData) : setEinsaetze(sortedData.filter(e => e.KAT === keyword))
+        setEinsaetze(sortedData)
+        setFilteredEinsaetze(sortedData)
       },
     },
   })
 
   useEffect(() => {
     if (!isLoading && data) {
-      keyword === 'alle' ? setEinsaetze(data) : setEinsaetze(data.filter(e => e.KAT === keyword))
+      keyword === 'alle' ? setFilteredEinsaetze(einsaetze) : setFilteredEinsaetze(einsaetze?.filter(e => e.KAT === keyword))
     }
   }, [keyword])
 
   return (
     <Box>
       <Typography variant="h4" component="div" sx={{ my: 2, mx: 2, color: '#D0121A', fontWeight: 'bold' }}>
-        Übersicht Einsätze
+        Übersicht Einsätze in {year}
       </Typography>
       <FilterSelections keyword={keyword} year={year} onChangeKeyboard={selectedKeyword} onChangeYear={selectYear} />
-      {isLoading ? <TableSkeleton /> : <EinsatzTable einsaetze={einsaetze} />
+      <KategorieCards einsaetze={einsaetze} isLoading={isLoading} onPressCategory={selectedKeyword} />
+      {isLoading ? <TableSkeleton /> : <EinsatzTable einsaetze={filteredEinsaetze} />
       }
     </Box>
   )

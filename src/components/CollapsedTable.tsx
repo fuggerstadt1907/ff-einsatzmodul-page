@@ -3,6 +3,8 @@ import { Box, Table, TableBody, TableCell, TableContainer, TableRow, Typography 
 import { ApiEinsatzResponse } from '../@types'
 import { ffKbrVehicles } from '../config'
 import Image from './Image'
+import dayjs from 'dayjs'
+import { useResponsive } from '../hooks'
 
 type Props = {
   row: ApiEinsatzResponse
@@ -10,22 +12,27 @@ type Props = {
 
 const CollapsedTable: React.FC<Props> = ({ row }) => {
   const isFFKbrVehicle = (vehicle: string) => ffKbrVehicles.includes(vehicle)
+  const isMobile = useResponsive('down', 'md')
 
   return (
     <TableContainer>
       <Table>
         <TableBody>
           <TableRow>
-            <TableCell sx={{ width: 180 }}>Alarmstichwort:</TableCell>
-            <TableCell>{row.STW}</TableCell>
+            <TableCell sx={{ width: isMobile ? 10 : 180 }}>Alarmart:</TableCell>
+            <TableCell>{row.ART}</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell sx={{ width: 180 }}>Einsatzlage:</TableCell>
+            <TableCell sx={{ width: isMobile ? 10 : 180 }}>Alarmierung:</TableCell>
+            <TableCell>{dayjs(row.VON, 'YYYY-MM-DD HH:MM:ss').format('HH:MM')} Uhr</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell sx={{ width: isMobile ? 10 : 180 }}>Einsatzlage:</TableCell>
             <TableCell>{row.DESCR}</TableCell>
           </TableRow>
           {row.FZG ? (
             <TableRow>
-              <TableCell sx={{ width: 180 }}>Eingesetzte Fahrzeuge:</TableCell>
+              <TableCell sx={{ width: isMobile ? 10 : 180 }}>Eingesetzte Fahrzeuge:</TableCell>
               <TableCell>
                 <Box sx={{ display: 'flex', gap: '30px', flexDirection: 'row' }}>
                   {row.FZG?.split(/[;,+]+/).map(fzg => {
@@ -49,7 +56,7 @@ const CollapsedTable: React.FC<Props> = ({ row }) => {
             </TableRow>
           ) : null}
           <TableRow>
-            <TableCell sx={{ width: 180, borderBottom: 'none' }}>Anmerkungen:</TableCell>
+            <TableCell sx={{ width: isMobile ? 10 : 180, borderBottom: 'none' }}>Anmerkungen:</TableCell>
             <TableCell sx={{ borderBottom: 'none' }}>
               {row.LAGE}
             </TableCell>

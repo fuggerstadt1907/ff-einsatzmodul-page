@@ -15,11 +15,11 @@ const EinsatzTable: React.FC<Props> = ({ einsaetze }) => {
           <TableHead sx={{ backgroundColor: '#D0121A' }}>
             <TableRow>
               <TableCell />
-              <TableCell align='left' sx={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>Nr.</TableCell>
+              <TableCell sx={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>Nr.</TableCell>
               <TableCell sx={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>Datum</TableCell>
               <TableCell sx={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>Stichwort</TableCell>
               <TableCell sx={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>Beschreibung</TableCell>
-              <TableCell sx={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>Fahrzeuge</TableCell>
+              {/* <TableCell sx={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>Fahrzeuge</TableCell> */}
             </TableRow>
           </TableHead>
           <TableBody>
