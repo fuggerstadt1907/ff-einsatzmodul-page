@@ -1,1 +1,1 @@
-export const keywords = ['alle', 'ABC', 'Brand', 'Fehlalarm', 'Hilfeleistung', 'Rettungsdienst', 'Sicherheitsdienst']
+export const keywords = ['Alle', 'ABC', 'Brand', 'Fehlalarm', 'Hilfeleistung', 'Rettungsdienst', 'Sicherheitsdienst']

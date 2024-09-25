@@ -20,8 +20,8 @@ export const mapKeyword = (keyword: string) => {
     case 'Sonstige':
       return 'S'
 
-    case 'alle':
-      return 'alle'
+    case 'Alle':
+      return 'Alle'
   }
 }
 

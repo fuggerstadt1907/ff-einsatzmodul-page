@@ -6,19 +6,20 @@ import { getLastYearsArray } from '../utils'
 type Props = {
   keyword: string
   year: string
-  onChangeKeyboard: (keyboard: string) => void
+  onChangeKeyword: (keyboard: string) => void
   onChangeYear: (year: string) => void
 }
 
-export const FilterSelections: React.FC<Props> = ({ keyword, year, onChangeKeyboard, onChangeYear }) => {
+export const FilterSelections: React.FC<Props> = ({ keyword, year, onChangeKeyword, onChangeYear }) => {
   const yearsArray = getLastYearsArray(3)
 
   const handleChangeKeyword = (event: SelectChangeEvent) => {
-    onChangeKeyboard(event.target.value as string)
+    onChangeKeyword(event.target.value as string)
   }
 
   const handleChangeYear = (event: SelectChangeEvent) => {
     onChangeYear(event.target.value as string)
+    onChangeKeyword('Alle')
   }
 
   return (
@@ -46,7 +47,7 @@ export const FilterSelections: React.FC<Props> = ({ keyword, year, onChangeKeybo
           <Select
             labelId="einsatz-keyword-select1-label"
             id="einsatz-keyword-select1"
-            placeholder="alle"
+            placeholder="Alle"
             value={keyword}
             label="Stichwort"
             onChange={handleChangeKeyword}>
