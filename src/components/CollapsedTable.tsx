@@ -24,7 +24,7 @@ const CollapsedTable: React.FC<Props> = ({ row }) => {
           </TableRow>
           <TableRow>
             <TableCell sx={{ width: isMobile ? 10 : 180 }}>Alarmierung:</TableCell>
-            <TableCell>{dayjs(row.VON, 'YYYY-MM-DD HH:MM:ss').format('HH:MM')} Uhr</TableCell>
+            <TableCell>{dayjs(row.VON, 'YYYY-MM-DD HH:mm:ss').format('HH:mm')} Uhr</TableCell>
           </TableRow>
           <TableRow>
             <TableCell sx={{ width: isMobile ? 10 : 180 }}>Einsatzlage:</TableCell>
