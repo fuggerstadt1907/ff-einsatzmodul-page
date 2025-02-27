@@ -25,7 +25,7 @@ const KategorieCards = ({ einsaetze, selectedKeyword, isLoading, onPressCategory
 
     if (isTablet) {
         return (
-            <Stack direction='column' sx={{ m: 2 }} spacing={2}>
+            <Stack direction='column' sx={{ my: 2 }} spacing={2}>
                 < Stack direction={'row'} spacing={2}>
                     <div onClick={() => onPressCategory('Alle')}><KategorieCard isSelected={selectedKeyword === 'Alle'} title="Alle" count={einsaetze?.length ?? 0} /></div>
                     {keywords.slice(1, 4).map(keyword => (
@@ -42,7 +42,7 @@ const KategorieCards = ({ einsaetze, selectedKeyword, isLoading, onPressCategory
     }
 
     return (
-        < Stack direction={'row'} sx={{ m: 2 }} spacing={2}>
+        < Stack direction={'row'} sx={{ my: 2 }} spacing={2}>
             <div onClick={() => onPressCategory('Alle')}><KategorieCard isSelected={selectedKeyword === 'Alle'} title="Alle" count={einsaetze?.length ?? 0} /></div>
             {keywords.filter(keyword => keyword !== 'Alle').map(keyword => (
                 <div key={keyword} onClick={() => onPressCategory(keyword)}><KategorieCard isSelected={selectedKeyword === keyword} title={keyword} count={einsaetze?.filter(e => e.KAT === keyword).length ?? 0} /></div>

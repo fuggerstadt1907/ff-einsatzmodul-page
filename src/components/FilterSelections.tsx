@@ -23,8 +23,8 @@ export const FilterSelections: React.FC<Props> = ({ keyword, year, onChangeKeywo
   }
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'row' }}>
-      <Box sx={{ my: 3, mx: 2, minWidth: 140 }}>
+    <Box sx={{ display: 'flex', flexDirection: 'row', gap: 2 }}>
+      <Box sx={{ my: 3, minWidth: 140 }}>
         <FormControl fullWidth>
           <InputLabel id="einsatz-year-select-label">Jahr</InputLabel>
           <Select
@@ -41,7 +41,7 @@ export const FilterSelections: React.FC<Props> = ({ keyword, year, onChangeKeywo
           </Select>
         </FormControl>
       </Box>
-      <Box sx={{ my: 3, mx: 2, minWidth: 140 }}>
+      <Box sx={{ my: 3, minWidth: 140 }}>
         <FormControl fullWidth>
           <InputLabel id="einsatz-keyword-select-label">Stichwort</InputLabel>
           <Select

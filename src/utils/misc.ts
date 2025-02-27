@@ -6,22 +6,25 @@ export const objectHasTruthyValuesOnly = (object: { [key: string]: any }) =>
 export const mapKeyword = (keyword: string) => {
   switch (keyword) {
     case 'Brand':
-      return 'B'
+      return 'Brand'
 
-    case 'Technische Hilfe':
-      return 'T'
+    case 'Hilfeleistung':
+      return 'THL'
 
-    case 'Sicherheitswache':
-      return 'W'
+    case 'Sicherheitsdienst':
+      return 'Brandwache'
 
     case 'Fehlalarm':
-      return 'F'
+      return 'Fehlalarm'
 
     case 'Sonstige':
       return 'S'
 
-    case 'Alle':
-      return 'Alle'
+    case 'Rettungsdienst':
+      return 'RD'
+
+    default:
+      return keyword
   }
 }
 
@@ -68,4 +71,24 @@ export const getLastYearsArray = (yearsCount: number) => {
   }
 
   return yearsArray
+}
+
+export const formatDuration = (start: string, end: string) => {
+  const time1 = dayjs(start)
+  const time2 = dayjs(end)
+
+  // Differenz in Minuten berechnen
+  const diffInMinutes = time2.diff(time1, "minute")
+
+  if (diffInMinutes <= 45) {
+    // Auf 15-Minuten-Schritte runden
+    const roundedMinutes = Math.ceil(diffInMinutes / 15) * 15
+    return `${roundedMinutes} Minuten`
+  } else if (diffInMinutes <= 60) {
+    return `1 Stunde` // Alles über 45 Minuten wird auf 1 Stunde gerundet
+  } else {
+    // In 30-Minuten-Schritten runden
+    const roundedHours = Math.round(diffInMinutes / 60) // Mathematische Rundung
+    return `${roundedHours} Stunden`
+  }
 }
