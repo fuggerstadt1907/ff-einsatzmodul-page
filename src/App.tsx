@@ -10,6 +10,7 @@ import { ApiEinsatzResponse } from './@types'
 import TableSkeleton from './components/TableSkeleton'
 import KategorieCards from './components/KategorieCards'
 import { EinsatzCard } from './components/EinsatzCard'
+import dayjs from 'dayjs'
 
 const AppRoot = () => {
   const [keyword, selectedKeyword] = useState('Alle')
@@ -23,7 +24,15 @@ const AppRoot = () => {
     params: { year },
     options: {
       onSuccess: data => {
-        const sortedData = data.reverse().filter(d => !d.DESCR.includes("Platzhalter"))
+        const sortedData = data
+          .filter(d => !d.DESCR.includes("Platzhalter")) // Einsatz-Entwürfe rausfiltern
+          .map((einsatz, index) => {
+            return {
+              ...einsatz,
+              NR: `${dayjs().year()}-${(index + 1).toString().padStart(3, "0")}`
+            }
+          }) // Einsatznummer selbst setzen um sprünge zu vermeiden (z.B. von 051 -> 053 da 052 noch draft ist)
+          .reverse() // umkehren, damit die neuesten Einsätze oben sind
         setEinsaetze(sortedData)
         setFilteredEinsaetze(sortedData)
       },
