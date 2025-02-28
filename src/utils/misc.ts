@@ -89,6 +89,6 @@ export const formatDuration = (start: string, end: string) => {
   } else {
     // In 30-Minuten-Schritten runden
     const roundedHours = Math.round(diffInMinutes / 60) // Mathematische Rundung
-    return `${roundedHours} Stunden`
+    return roundedHours === 1 ? `${roundedHours} Stunde` : `${roundedHours} Stunden`
   }
 }
