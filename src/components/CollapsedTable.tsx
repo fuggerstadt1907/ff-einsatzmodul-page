@@ -20,10 +20,6 @@ const CollapsedTable: React.FC<Props> = ({ row }) => {
       <Table>
         <TableBody>
           <TableRow>
-            <TableCell sx={{ width: isMobile ? 10 : 180 }}>Alarmart:</TableCell>
-            <TableCell>{row.ART}</TableCell>
-          </TableRow>
-          <TableRow>
             <TableCell sx={{ width: isMobile ? 10 : 180 }}>Alarmierung:</TableCell>
             <TableCell>{dayjs(row.VON, 'YYYY-MM-DD HH:mm:ss').format('HH:mm')} Uhr {`(ca. ${formatDuration(row.VON, row.BIS)})`}</TableCell>
           </TableRow>
