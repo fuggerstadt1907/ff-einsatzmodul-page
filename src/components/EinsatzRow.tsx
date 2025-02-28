@@ -36,7 +36,7 @@ const Row: React.FC<Props> = ({ row }) => {
           </Label>
         </TableCell>
 
-        <TableCell>{row.DESCR}</TableCell>
+        <TableCell>{row.ART}</TableCell>
         {/* <TableCell>
           {row.FZG ? row.FZG?.split(/[;,+]+/).map(fzg => (
             <Label key={fzg} sx={{ m: 1 }} color="black" backgroundColor="rettungsdienst-sonstige">
