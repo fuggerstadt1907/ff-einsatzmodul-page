@@ -23,7 +23,7 @@ const AppRoot = () => {
     params: { year },
     options: {
       onSuccess: data => {
-        const sortedData = data.reverse()
+        const sortedData = data.reverse().filter(d => !d.DESCR.includes("Platzhalter"))
         setEinsaetze(sortedData)
         setFilteredEinsaetze(sortedData)
       },
