@@ -5,6 +5,7 @@ import { ffKbrVehicles } from '../config'
 import Image from './Image'
 import dayjs from 'dayjs'
 import { useResponsive } from '../hooks'
+import { formatDuration } from '../utils'
 
 type Props = {
   row: ApiEinsatzResponse
@@ -24,7 +25,7 @@ const CollapsedTable: React.FC<Props> = ({ row }) => {
           </TableRow>
           <TableRow>
             <TableCell sx={{ width: isMobile ? 10 : 180 }}>Alarmierung:</TableCell>
-            <TableCell>{dayjs(row.VON, 'YYYY-MM-DD HH:mm:ss').format('HH:mm')} Uhr</TableCell>
+            <TableCell>{dayjs(row.VON, 'YYYY-MM-DD HH:mm:ss').format('HH:mm')} Uhr {`(ca. ${formatDuration(row.VON, row.BIS)})`}</TableCell>
           </TableRow>
           <TableRow>
             <TableCell sx={{ width: isMobile ? 10 : 180 }}>Einsatzlage:</TableCell>
