@@ -30,8 +30,11 @@ export const EinsatzCard: React.FC<Props> = ({ einsatz }) => {
             <CardContent sx={{
                 display: "flex",
                 flexDirection: "row",
-                gap: 2,
-                padding: 2,
+                gap: 1,
+                paddingTop: 2,
+                paddingBottom: 2,
+                paddingRight: 0.7,
+                paddingLeft: 0.7,
                 flex: 1,
                 minWidth: 0
             }}>
