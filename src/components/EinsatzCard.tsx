@@ -29,56 +29,39 @@ export const EinsatzCard: React.FC<Props> = ({ einsatz }) => {
         }}>
             <CardContent sx={{
                 display: "flex",
-                flexDirection: "row",
-                gap: 1,
+                flexDirection: "column",
+                gap: 2,
                 paddingTop: 2,
                 paddingBottom: 2,
-                paddingRight: 0.7,
-                paddingLeft: 0.7,
+                paddingRight: 0.9,
+                paddingLeft: 0.9,
                 flex: 1,
                 minWidth: 0
             }}>
+
+
                 <Box sx={{
                     display: "flex",
-                    flexDirection: "column",
-                    gap: 0.5,
-                    width: 80,
-                    flex: 'none',
+                    flexDirection: "row",
+                    gap: 1,
+                    flex: 1
                 }}>
-                    <Label color={mapKeywordToTextColor(einsatz.KAT)} backgroundColor={mapKeywordToColorSchema(einsatz.KAT)}>
-                        {mapKeyword(einsatz.KAT)}
-                    </Label>
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-                        <NumbersIcon fontSize="small" />
-                        <Typography variant="body1">{parseInt(einsatz.NR?.toString().split('-')[1]).toString()}</Typography>
+                    <Box sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: 0.5,
+                        flex: 1
+                    }}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                            <NumbersIcon fontSize="small" />
+                            <Typography variant="body1">{parseInt(einsatz.NR?.toString().split('-')[1]).toString()}</Typography>
+                        </Box>
+                        <Typography variant="body1">{dayjs(einsatz.VON).format("DD.MM.YY")}</Typography>
                     </Box>
-                    <Typography variant="body1">{dayjs(einsatz.VON).format("DD.MM.YY")}</Typography>
-                </Box>
 
-                <Divider orientation="vertical" flexItem />
+                    <Divider orientation="vertical" flexItem />
 
-                <Box sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    flex: 1,
-                    gap: 2,
-                    minWidth: 0,
-                    width: '100%'
-                }}>
-                    <Typography
-                        noWrap
-                        variant="body1"
-                        sx={{
-                            width: '100%',
-                            overflow: "hidden",
-                            textOverflow: "ellipsis",
-                            whiteSpace: "nowrap"
-                        }}
-                    >
-                        {einsatz.ART}
-                    </Typography>
-
-                    <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 0.5 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: "flex-end", gap: 0.5, flex: 1 }}>
                         <AccessTimeIcon fontSize="small" />
                         <Box>
                             <Typography variant="body1">
@@ -89,6 +72,24 @@ export const EinsatzCard: React.FC<Props> = ({ einsatz }) => {
                             </Typography>
                         </Box>
                     </Box>
+                </Box>
+                <Box>
+                    <Label color={mapKeywordToTextColor(einsatz.KAT)} backgroundColor={mapKeywordToColorSchema(einsatz.KAT)}>
+                        {mapKeyword(einsatz.KAT)}
+                    </Label>
+
+                    <Typography
+                        variant="body1"
+                        sx={{
+                            width: '100%',
+                            whiteSpace: "normal",
+                            wordWrap: "break-word",
+                            overflow: "visible",
+                            mt: 0.5
+                        }}
+                    >
+                        {einsatz.ART}
+                    </Typography>
                 </Box>
             </CardContent>
         </Card >
